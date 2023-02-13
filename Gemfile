@@ -73,3 +73,9 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+# devise gem for authentication
+gem 'devise'
+
+# cancancan gem for authorization
+gem 'cancancan'
