@@ -1,0 +1,16 @@
+<h1>This is the category page</h1>
+
+<% if @categories.empty? %>
+  <p>You have no category yet</p>
+  <%# <i class="bi bi-plus" aria-hidden="true"></i> %>
+<% else %>
+  <% @categories.each do |category| %>
+    <div>
+      <%= link_to category_transacts_path(category)  do %>
+        <%= image_tag(category.icon, size: '50x50', alt: category.name + 'icon')  %>
+        <%= category.name %>
+      <% end %>
+    </div><br>
+  <% end %>
+<% end %>
+<%= link_to "Create New Category", new_category_path %>
