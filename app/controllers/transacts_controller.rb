@@ -4,8 +4,7 @@ class TransactsController < ApplicationController
     @transacts = @category.transacts.order(created_at: :desc)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @transact = Transact.new

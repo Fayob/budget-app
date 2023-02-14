@@ -82,4 +82,4 @@ gem 'cancancan'
 
 gem 'importmap-rails'
 
-gem "font-awesome-sass", "~> 6.3.0"
+gem 'font-awesome-sass', '~> 6.3.0'
