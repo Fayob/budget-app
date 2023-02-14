@@ -1,0 +1,23 @@
+<h1>Create New Transaction</h1>
+<% if @transact.errors.any? %>
+  <h2>The following errors prevent the post from being saved</h2>
+  <ul>
+    <% @transact.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @transacts, url: category_transacts_path, local: true do |form| %>
+  <div class='field'>
+    <%= form.label :name %>
+    <%= form.text_field :name, autofocus: true, autocomplete: 'name' %>
+  </div> <br>
+  
+  <div class='field'>
+    <%= form.label :amount %>
+    <%= form.text_field :amount, autofocus: true, autocomplete: 'amount' %> 
+  </div>
+
+  <%= form.submit %>
+<% end %>
