@@ -1,4 +1,8 @@
-<h1>Create New Transaction</h1>
+<%= link_to category_transacts_path do %>
+  <i class="bi bi-arrow-left-circle-fill position-absolute top-0 ms-2 mt-3" style="font-size: 2rem; color: white;"></i>
+<% end %>
+
+<h1 class="text-center">Create New Transaction</h1>
 <% if @transact.errors.any? %>
   <h2>The following errors prevent the post from being saved</h2>
   <ul>
@@ -8,16 +12,21 @@
   </ul>
 <% end %>
 
-<%= form_with model: @transacts, url: category_transacts_path, local: true do |form| %>
+<%= form_with model: @transacts, url: category_transacts_path, local: true, class: 'mx-4 px-2' do |form| %>
   <div class='field'>
     <%= form.label :name %>
-    <%= form.text_field :name, autofocus: true, autocomplete: 'name' %>
+    <%= form.text_field :name, autofocus: true, autocomplete: 'name', class:"form-control mt-2" %>
   </div> <br>
   
   <div class='field'>
     <%= form.label :amount %>
-    <%= form.text_field :amount, autofocus: true, autocomplete: 'amount' %> 
+    <%= form.text_field :amount, autofocus: true, autocomplete: 'amount', class:"form-control mt-2" %> 
   </div>
 
-  <%= form.submit %>
+  <div class='field mt-3'>
+    <%= form.label :category %>
+    <%= select_tag 'category', options_for_select(@categories.collect{ |u| [u.name, u.id] }), autofocus: true, class:"w-100 p-2 mt-2 rounded-2 border border-1" %> 
+  </div>
+
+  <%= form.submit class: 'btn btn-outline-primary mt-4 w-100' %>
 <% end %>
