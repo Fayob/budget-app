@@ -1,16 +1,33 @@
-<h1>This is the category page</h1>
+<h1 class="mb-5 text-center">Categories page</h1>
 
 <% if @categories.empty? %>
-  <p>You have no category yet</p>
-  <%# <i class="bi bi-plus" aria-hidden="true"></i> %>
+  <p class="text-center">You have no category yet</p>
 <% else %>
   <% @categories.each do |category| %>
-    <div>
-      <%= link_to category_transacts_path(category)  do %>
-        <%= image_tag(category.icon, size: '50x50', alt: category.name + 'icon')  %>
-        <%= category.name %>
-      <% end %>
-    </div><br>
+    <%= link_to category_transacts_path(category), class: 'text-decoration-none'  do %>
+      <div class="card mx-3 p-2 d-flex flex-row align-items-center">
+          <div class="mx-2">
+            <%= image_tag(category.icon, size: '110x110', alt: category.name + ' icon')  %>
+          </div>
+          <div class="card-body mx-2 d-flex flex-column justify-content-between">
+            <h5><%= category.name %></h5>
+            <p class='mt-4'> <%= category.created_at.strftime('%d %b %Y') %> </p>
+          </div>
+          <div >
+            <% if category.transacts.empty? %>
+              <p class="ms-2">$0</p>
+            <% else %>
+              <% sum = 0 %>
+              <% category.transacts.each do |transact| %>
+                <% sum += transact.amount %>
+              <% end %>
+              <p class="ms-2">$<%= sum %></p>
+            <% end %>
+          </div>
+      </div><br>
+    <% end %>
   <% end %>
 <% end %>
-<%= link_to "Create New Category", new_category_path %>
+<div class="text-center my-5">
+  <%= link_to "Create New Category", new_category_path, class: 'btn btn-outline-primary' %>
+</div>
