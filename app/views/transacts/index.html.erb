@@ -1,4 +1,8 @@
-<h2>Transaction pages</h2>
+<%= link_to categories_path do %>
+  <i class="bi bi-arrow-left-circle-fill position-absolute top-0 ms-2 mt-3" style="font-size: 2rem; color: white;"></i>
+<% end %>
+
+<h2 class="text-center mt-5"><%= @category.name %> Transactions Page</h2>
 
 <% if @transacts.empty? %>
   <p>You have no transaction in this category</p>
@@ -7,12 +11,19 @@
   <% @transacts.each do |transact| %>
     <% sum += transact.amount %>
   <% end %>
-  <h4>Total Amount Spent: $<%= sum %> </h4>
-  <div>
+  <h4 class="text-center my-5">Total Amount Spent: $<%= sum %> </h4>
+  <div class="mx-4">
     <% @transacts.each do |transact| %>
-    <h5> <%= transact.name %> </h5>
-    <h6>Amount: $<%= transact.amount %>  </h6>
+    <div class="card mb-2 p-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5> <%= transact.name %> </h5>
+        <span> $<%= transact.amount %></span>
+      </div>
+      <h6>Transacted on: <%= transact.created_at.strftime('%d %b %Y') %></h6>
+    </div>
   <% end %>
   </div>
 <% end %>
-<%= link_to 'Add transaction', new_category_transact_path %>
+<div class="text-center my-5">
+  <%= link_to 'Add transaction', new_category_transact_path, class: 'btn btn-outline-primary' %>
+</div>
