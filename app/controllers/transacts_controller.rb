@@ -6,8 +6,6 @@ class TransactsController < ApplicationController
     @transacts = @category.transacts.order(created_at: :desc)
   end
 
-  def show; end
-
   def new
     @categories = Category.where(user: current_user)
     @transact = Transact.new
