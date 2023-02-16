@@ -7,15 +7,16 @@ class TransactsController < ApplicationController
   def show; end
 
   def new
+    @categories = Category.where(user: current_user)
     @transact = Transact.new
   end
 
   def create
     @transact = Transact.new(user: current_user, name: params[:name], amount: params[:amount])
     if @transact.save
-      CategoryTransact.create(category_id: params[:category_id], transact: @transact)
+      CategoryTransact.create(category_id: params[:category], transact: @transact)
       flash[:notice] = 'Transaction added successfully'
-      redirect_to category_transacts_path
+      redirect_to category_transacts_path(params[:category])
     else
       render 'new'
     end
