@@ -1,4 +1,6 @@
 class TransactsController < ApplicationController
+  load_and_authorize_resource
+  
   def index
     @category = Category.includes(:transacts).find(params[:category_id])
     @transacts = @category.transacts.order(created_at: :desc)
