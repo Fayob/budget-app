@@ -58,9 +58,17 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+### Live Demo <a name="live-demo"></a>
+
+[Click to checkout the live demo app](https://budget-app-rb45.onrender.com)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
+
 
 ### Prerequisites
 
@@ -145,12 +153,12 @@ If you like this project, please leave a star 😁
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-We would like to give kudos to **Gregoire Vella** on Behance for making the design which was used for this project.
+I would like to give kudos to **Gregoire Vella** on Behance for making the design which was used for this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-<!-- ## ❓ FAQ (OPTIONAL) <a name="faq"></a>
+## ❓ FAQ (OPTIONAL) <a name="faq"></a>
 
 - **Can I reuse this code?**
 
@@ -160,7 +168,7 @@ We would like to give kudos to **Gregoire Vella** on Behance for making the desi
 
   - No you do not.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📝 License <a name="license"></a>
 
