@@ -6,7 +6,7 @@ describe 'Routes for transacts', type: :routing do
   end
 
   it 'routes get /categories/1/transacts/new to the transacts controller' do
-    expect(get( new_category_transact_path(1))).to route_to('transacts#new', category_id: '1')
+    expect(get(new_category_transact_path(1))).to route_to('transacts#new', category_id: '1')
   end
 
   it 'routes post /categories/1/transacts to the transacts controller' do
