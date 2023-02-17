@@ -1,8 +1,7 @@
 databases:
-  - name: postgres
-    ipAllowList: []
-    # databaseName: budget-app
-    # user: postgres
+  - name: Budget-App
+    databaseName: budget_app_ghi6
+    user: budget_app_ghi6_user
 
 services:
   - type: web
