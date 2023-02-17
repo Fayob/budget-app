@@ -1,8 +1,8 @@
-<div class="w-100 d-flex flex-column align-items-center">
+<div class="p-5">
   <h2 class="mb-5">Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field mt-2" class="w-100">
+    <div class="field mt-2">
       <%= f.label :email%><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mt-2" %>
     </div>

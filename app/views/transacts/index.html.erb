@@ -2,7 +2,7 @@
   <i class="bi bi-arrow-left-circle-fill position-absolute top-0 ms-2 mt-3" style="font-size: 2rem; color: white;"></i>
 <% end %>
 
-<h2 class="text-center mt-3"><%= @category.name %> Transactions Page</h2>
+<h2 class="text-center mt-3 card p-2 mx-5 text-primary"><%= @category.name %> Transactions Page</h2>
 
 <% if @transacts.empty? %>
   <p class="text-center">You have no transaction in this category</p>
@@ -25,5 +25,5 @@
   </div>
 <% end %>
 <div class="text-center my-5">
-  <%= link_to 'Add transaction', new_category_transact_path, class: 'btn btn-outline-primary' %>
+  <%= link_to 'Add transaction', new_category_transact_path, class: 'btn btn-outline-success' %>
 </div>
