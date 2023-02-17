@@ -120,13 +120,13 @@ To run tests, run the following command:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ## 🔭 Future Features <a name="future-features"></a>
+## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] A graphical user interface
-- [ ] Better information validation
-- [ ] A backend to store the data
+- [ ] A better design to user interface
+- [ ] A Better information validation
+- [ ] A backend API to serve as many frontend as possible
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -145,7 +145,7 @@ If you like this project, please leave a star 😁
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-We would like to thank the Microverse staff for all the efforts they put in define the requirements of this project.
+We would like to give kudos to **Gregoire Vella** on Behance for making the design which was used for this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

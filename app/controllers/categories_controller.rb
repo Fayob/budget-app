@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  load_and_authorize_resource except: :index
+
   def index
     if current_user
       @categories = Category.includes(:transacts).where(user: current_user)
