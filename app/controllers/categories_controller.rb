@@ -7,10 +7,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def show
-    # @category = Category.includes(:transacts).find(params[:id])
-  end
-
   def new
     @category = Category.new
   end
