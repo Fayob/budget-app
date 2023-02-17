@@ -1,7 +1,8 @@
 databases:
   - name: postgres
-    databaseName: budget-app
-    user: postgres
+    ipAllowList: []
+    # databaseName: budget-app
+    # user: postgres
 
 services:
   - type: web
@@ -12,7 +13,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: budget-app
+          name: postgres
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
