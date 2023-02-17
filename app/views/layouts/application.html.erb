@@ -10,6 +10,7 @@
     <%= javascript_include_tag "/assets/application.js", "data-turbo-track": "reload", defer: true %>
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag asset_path('crown.png') %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
@@ -19,9 +20,6 @@
         <h1>FAYOB</h1>
         <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-outline-light" %>
       </nav>
-    <%# <% else %>
-      <%# <%= link_to "Sign Up", new_user_registration_path %>
-      <%# <%= link_to "Sign in", new_user_session_path %>
     <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
