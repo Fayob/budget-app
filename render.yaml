@@ -1,6 +1,6 @@
 databases:
-  - name: budget-app
-    databaseName: postgres
+  - name: postgres
+    databaseName: budget-app
     user: postgres
 
 services:
