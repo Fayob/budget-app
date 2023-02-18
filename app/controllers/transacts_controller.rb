@@ -21,4 +21,10 @@ class TransactsController < ApplicationController
       render 'new'
     end
   end
+
+  def destroy
+    @transact = Transact.find(params[:id])
+    @transact.destroy
+    redirect_to category_transacts_path(params[:category_id])
+  end
 end
