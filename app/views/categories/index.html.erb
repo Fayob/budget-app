@@ -4,8 +4,8 @@
   <p class="text-center">You have no category yet</p>
 <% else %>
   <% @categories.each do |category| %>
-    <section class='card mx-3 p-2 my-2 d-flex flex-row align-items-center'>
-      <%= link_to category_transacts_path(category), class: 'text-decoration-none'  do %>
+    <section class='card mx-3 p-2 my-2 d-flex flex-row align-items-center justify-content-between'>
+      <%= link_to category_transacts_path(category), class: 'text-decoration-none w-75'  do %>
         <div class=" d-flex flex-row align-items-center">
             <div class="mx-2">
               <%= image_tag(category.icon, size: '110x110', alt: category.name + ' icon') %>
@@ -27,7 +27,8 @@
             </div>
         </div><br>
       <% end %>
-      <%= button_to category_path(category), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: 'mx-2 btn btn-outline-danger' do %>
+      <%= button_to category_path(category), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } },
+       class: 'mx-2 btn btn-outline-danger' do %>
         <i class="bi bi-trash"></i>
       <% end %>
     </section>
