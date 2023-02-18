@@ -1,31 +1,36 @@
-<h1 class="mb-5 text-center card p-2 mx-5 text-primary">Categories Page</h1>
+<h1 class="mb-5 text-center card p-2 mx-5 text-primary">Categories</h1>
 
 <% if @categories.empty? %>
   <p class="text-center">You have no category yet</p>
 <% else %>
   <% @categories.each do |category| %>
-    <%= link_to category_transacts_path(category), class: 'text-decoration-none'  do %>
-      <div class="card mx-3 p-2 d-flex flex-row align-items-center">
-          <div class="mx-2">
-            <%= image_tag(category.icon, size: '110x110', alt: category.name + ' icon')  %>
-          </div>
-          <div class="card-body mx-2 d-flex flex-column justify-content-between">
-            <h5><%= category.name %></h5>
-            <p class='mt-4'> <%= category.created_at.strftime('%d %b %Y') %> </p>
-          </div>
-          <div >
-            <% if category.transacts.empty? %>
-              <p class="ms-2">$0</p>
-            <% else %>
-              <% sum = 0 %>
-              <% category.transacts.each do |transact| %>
-                <% sum += transact.amount %>
+    <section class='card mx-3 p-2 my-2 d-flex flex-row align-items-center'>
+      <%= link_to category_transacts_path(category), class: 'text-decoration-none'  do %>
+        <div class=" d-flex flex-row align-items-center">
+            <div class="mx-2">
+              <%= image_tag(category.icon, size: '110x110', alt: category.name + ' icon') %>
+            </div>
+            <div class="card-body mx-2 d-flex flex-column justify-content-between">
+              <h5><%= category.name %></h5>
+              <p class='mt-4'> <%= category.created_at.strftime('%d %b %Y') %> </p>
+            </div>
+            <div >
+              <% if category.transacts.empty? %>
+                <p class="mx-2">$0</p>
+              <% else %>
+                <% sum = 0 %>
+                <% category.transacts.each do |transact| %>
+                  <% sum += transact.amount %>
+                <% end %>
+                <p class="mx-2 mt-2">$<%= sum %></p>
               <% end %>
-              <p class="ms-2">$<%= sum %></p>
-            <% end %>
-          </div>
-      </div><br>
-    <% end %>
+            </div>
+        </div><br>
+      <% end %>
+      <%= button_to category_path(category), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: 'mx-2 btn btn-outline-danger' do %>
+        <i class="bi bi-trash"></i>
+      <% end %>
+    </section>
   <% end %>
 <% end %>
 <div class="text-center my-5">
