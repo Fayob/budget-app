@@ -1,0 +1,33 @@
+<%= link_to categories_path do %>
+  <i class="bi bi-arrow-left-circle-fill position-absolute top-0 ms-2 mt-3" style="font-size: 2rem; color: white;"></i>
+<% end %>
+
+<h2 class="text-center mt-3 card p-2 mx-5 text-primary"><%= @category.name %> Transactions </h2>
+
+<% if @transacts.empty? %>
+  <p class="text-center">You have no transaction in this category</p>
+<% else %>
+  <% sum = 0 %>
+  <% @transacts.each do |transact| %>
+    <% sum += transact.amount %>
+  <% end %>
+  <h4 class="text-center my-5">Total Amount Spent: $<%= sum %> </h4>
+  <div class="mx-4">
+    <% @transacts.each do |transact| %>
+      <div class="card mb-2 p-4 d-flex flex-row justify-content-between">
+        <div class="">
+          <h5> <%= transact.name %> </h5>
+          <h6><%= transact.created_at.strftime('%d %b %Y') %></h6>
+        </div>
+        <p> $<%= transact.amount %></p>
+        <%= button_to category_transact_path(@category, transact), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } },
+         class: 'mx-2 btn btn-outline-danger' do %>
+          <i class="bi bi-trash"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<div class="text-center my-5">
+  <%= link_to 'Add transaction', new_category_transact_path, class: 'btn btn-outline-success' %>
+</div>

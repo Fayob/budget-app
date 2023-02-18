@@ -1,0 +1,43 @@
+<%= link_to categories_path do %>
+  <i class="bi bi-arrow-left-circle-fill position-absolute top-0 ms-2 mt-3" style="font-size: 2rem; color: white;"></i>
+<% end %>
+
+<h1 class="text-center">Create New Category</h1>
+<% if @category.errors.any? %>
+  <h2>The following errors prevent the post from being saved</h2>
+  <ul>
+    <% @category.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @categories, url: categories_path, local: true, class: 'mx-4 px-2' do |form| %>
+  <div class='field'>
+    <%= form.label :name %>
+    <%= form.text_field :name, autofocus: true, autocomplete: 'name', class:"form-control mt-2" %>
+  </div> <br>
+  
+  <div class='field'>
+    <%= form.label :icon %>
+    <%# <%= form.text_field :icon, autofocus: true, autocomplete: 'icon', class:"form-control mt-2" %>
+    <%= select_tag "icon", raw("
+    <option value='burger.png'> Food </option>
+    <option value='stack-of-books.png'> Books </option>
+    <option value='responsive.png'> Computer </option>
+    <option value='medical-team.png'> Health </option>
+    <option value='male-clothes.png'>Clothing</option>
+    <option value='value.png'> Accounts </option>
+    <option value='jewelry.png'>Jewelry</option>
+    <option vaue='cart.png'> Cart </option>
+    <option value='suitcase.png'> Bags </option>
+    <option value='electric-appliance.png'>Electronics</option>
+    <option value='customer-support.png'>Tools/Equipment</option>
+    <option value='furniture.png'>Furniture</option>
+    <option value='kitchen.png'>Home Appliances</option>
+    <option value='recycling.png'> Recycling </option>
+    "), autofocus: true, class:"w-100 p-2 mt-2 rounded-2 border border-1"  %>
+  </div>
+
+  <%= form.submit class: 'btn btn-outline-success mt-4 w-100' %>
+<% end %>
